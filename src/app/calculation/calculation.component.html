@@ -1,0 +1,24 @@
+
+<div class="select_container">
+  <h5>Calculators</h5>
+   <div class="selectbox_container row">
+    <div class="col-md-12">
+      <label for="quantity">Select option</label>
+      <select [(ngModel)]="category" id="category">
+         <option value="" disabled selected>select a category</option>
+         <option *ngFor="let item of categories" [value]="item.category">{{item.category}}</option>
+      </select>
+    </div>
+   </div>
+   <br>
+   <div class="textbox_container row">
+     <div class="col-md-6">
+        <label for="quantity">Quantity</label><br>
+       <input type="text" name="" class="textbox" value="">
+     </div>
+     <div class="col-md-6">
+         <label for="price">Price</label><br>
+       <input type="text" name="" class="textbox" value="">
+     </div>
+   </div>
+</div>

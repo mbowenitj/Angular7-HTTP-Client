@@ -1,0 +1,26 @@
+<!-- <h1 [class.gray]="h1Style">
+  Home works!
+</h1> -->
+<div class="homeContainer">
+  <h1>Angular 7 - Fake API Calls</h1>
+
+  <input [(ngModel)]="searchText" placeholder="search..">
+  <br><br>
+    <ul *ngFor="let photo of photos | filter : searchText | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
+      <img [src]="photo.thumbnailUrl">
+      <li>{{ photo.id }} {{ photo.title }}</li>
+   </ul>
+
+   <p class="pagination">
+       <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+         <span>Page {{curPage}} of {{ numberOfPages() }}</span>
+       <button [disabled] = "curPage >= photos.length/pageSize" (click) ="curPage = curPage + 1">NEXT</button>
+   </p>
+  <!-- <h1 [ngClass]="{
+      'gray': h1Style,
+      'large': !h1Style
+    }">Home works!
+  </h1>
+
+<button (click)="firstClick()">Click me</button> -->
+</div>

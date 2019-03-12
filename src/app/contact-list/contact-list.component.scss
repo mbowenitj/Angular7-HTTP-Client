@@ -1,0 +1,30 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.phonebook_container{
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  .contacts{
+    padding-top: 30px;
+    .userID{
+      font-weight: 700;
+    }
+  }
+  button{
+    padding: 30px;
+    width: 50%;
+  }
+  input{
+    width: 50%;
+    border: solid grey 2px;
+  }
+  ul{
+    width: 50%;
+    background-color: beige;
+    box-shadow: 5px 4px lavender;
+    list-style:none;
+    padding: 27px;
+    font-size: 13px;
+    line-height: 2;
+  }
+}
