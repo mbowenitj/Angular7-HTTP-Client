@@ -14,38 +14,6 @@ export class HomeComponent implements OnInit {
   curPage : number;
   pageSize : number;
 
-//   products = [
-//     {
-//       id:"1",
-//       name:"test",
-//       email:"test@test.com",
-//       color:"white",
-//       price:" R200",
-//     },
-//     {
-//       id:"23",
-//       name:"jabu",
-//       email:"jabu@test.com",
-//       color:"white",
-//       price:" R200",
-//     },
-//     {
-//       id:"2",
-//       name:"ninja",
-//       email:"ninjam@test.com",
-//       color:"red",
-//       price:" R350",
-//     },
-//     {
-//       id:"3",
-//       name:"jomo",
-//       email:"jomom@test.com",
-//       color:"blue",
-//       price:" R400"
-//     }
-// ]
-
-
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -53,16 +21,14 @@ export class HomeComponent implements OnInit {
         this.photos = data
         console.log(this.photos);
         this.curPage = 1;
-        this.pageSize = 3;
+        this.pageSize = 4;
       }
-
     );
   }
 
   numberOfPages(){
     return Math.ceil(this.photos.length / this.pageSize);
   };
-
 
 
   firstClick(){

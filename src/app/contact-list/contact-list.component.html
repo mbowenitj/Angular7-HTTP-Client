@@ -1,13 +1,20 @@
 <div class="phonebook_container">
-  <button ng-click="" type="button" name="button">Add a Contact</button><br><br>
+  <!-- <button ng-click="" type="button" name="button">Add a Contact</button><br><br> -->
   <label for="search" class="col-sm-2 control-label">Search: </label>
   <input [(ngModel)]="searchContacts" class="form-control">
    <div class="contacts">
-     <ul *ngFor = "let user of users | filter : searchContacts">
-      <li class="userID">{{user.id}}</li>
+     <ul *ngFor = "let user of users | filter : searchContacts | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
+      <!-- <li class="userID">{{user.id}}</li> -->
       <li>{{user.name}}</li>
       <li>{{user.email}}</li>
       <li>{{user.phone}}</li>
     </ul>
+    <p class="pagination">
+        <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+          <span>Page {{curPage}} of {{numberOfPages()}}</span>
+        <button [disabled] = "curPage >= users.length/pageSize" (click) ="curPage = curPage + 1">NEXT</button>
+    </p>
+    <!-- <button ng-click="" type="button" name="button">Add a Contact</button><br><br> -->
+
    </div>
 </div>

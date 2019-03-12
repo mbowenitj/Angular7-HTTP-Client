@@ -7,31 +7,11 @@ import { DataService } from '../data.service';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-users: any = [];
-searchContacts: string = '';
+  users: any = [];
+  searchContacts: string = '';
 
-// contacts = [
-//     {
-//       name:"Tom",
-//       phone:"012-345-6789",
-//       email:"tom@test.com",
-//     },
-//     {
-//       name:"Jerry",
-//       phone:"012-345-0989",
-//       email:"jerryt@gmail.com"
-//     },
-//     {
-//       name:"Philip",
-//       phone:"012-345-1231",
-//       email:"philip@gmail.com"
-//     },
-//     {
-//       name:"Tito",
-//       phone:"012-345-2232",
-//       email:"tito@gmail.com"
-//    }
-// ];
+  curPage : number;
+  pageSize : number;
 
   constructor(private data: DataService) { }
 
@@ -39,11 +19,15 @@ searchContacts: string = '';
     this.data.getUsers().subscribe(data => {
         this.users = data
         console.log(this.users);
+        this.curPage = 1;
+        this.pageSize = 4;
       }
     );
   }
 
-
+  numberOfPages(){
+    return Math.ceil(this.users.length / this.pageSize);
+  };
 
   //   this.Save = function(){
   //   this.people.push({ name: this.newPerson.name, phone: this.newPerson.phone,

@@ -8,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
   // appTitle: string = 'myapp';
     // OR (either will work)
-  appTitle = 'Building some really cool stuff';
+  appTitle = 'Angular 7 - API Calls and Pagination';
   constructor() { }
 
   ngOnInit() {
   }
-
 }

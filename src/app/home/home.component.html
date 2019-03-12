@@ -2,7 +2,7 @@
   Home works!
 </h1> -->
 <div class="homeContainer">
-  <h1>Angular 7 - Fake API Calls</h1>
+  <!-- <h1>Angular 7 - Fake API Calls</h1> -->
 
   <input [(ngModel)]="searchText" placeholder="search..">
   <br><br>
@@ -13,7 +13,7 @@
 
    <p class="pagination">
        <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
-         <span>Page {{curPage}} of {{ numberOfPages() }}</span>
+         <span>Page {{curPage}} of {{numberOfPages()}}</span>
        <button [disabled] = "curPage >= photos.length/pageSize" (click) ="curPage = curPage + 1">NEXT</button>
    </p>
   <!-- <h1 [ngClass]="{

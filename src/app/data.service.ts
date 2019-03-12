@@ -6,6 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class DataService {
+  // photos: any = [];
+  //
+  // curPage : number;
+  // pageSize : number;
 
   constructor(private http: HttpClient) { }
 
@@ -23,4 +27,8 @@ export class DataService {
     // return this.http.get('https://reqres.in/api/users')
       return this.http.get('https://jsonplaceholder.typicode.com/photos')
   }
+
+  // numberOfPages(){
+  //   return Math.ceil(this.photos.length / this.pageSize);
+  // };
 }
