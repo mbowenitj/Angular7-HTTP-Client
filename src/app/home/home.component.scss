@@ -1,14 +1,20 @@
 
 .homeContainer{
+  h1{
+    text-align: center;
+    font-size: 16px;
+  }
   input{
         border: solid grey 2px;
         padding: 10px;
+        width: 40%;
   }
   ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       background: rgb(238, 238, 238);
+      width: 40%;
       li {
           font-size: 13px;
           padding: 8px;
@@ -35,4 +41,21 @@
       font-weight: 799;
     }
   }
+}
+
+@media (min-width: 320px) {
+  .homeContainer{
+    input,ul{
+      width: 100%;
+    }
+    // .mobile-hide{
+    //   display: none;
+    // }
+    .pagination{
+      button{
+        width: 100%;
+        height: 34px;
+      }
+    }
+   }
 }

@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -34,7 +36,8 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

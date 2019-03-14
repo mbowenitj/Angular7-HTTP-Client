@@ -8,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
   // appTitle: string = 'myapp';
     // OR (either will work)
-  appTitle = 'Angular 7 - API Calls and Pagination';
+   appTitle = '';
+
+   navbarOpen = false;
+
+   toggleNavbar() {
+     this.navbarOpen = !this.navbarOpen;
+   }
+   
   constructor() { }
 
   ngOnInit() {

@@ -7,15 +7,20 @@
   <input [(ngModel)]="searchText" placeholder="search..">
   <br><br>
     <ul *ngFor="let photo of photos | filter : searchText | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
-      <img [src]="photo.thumbnailUrl">
+      <img [src]="photo.thumbnailUrl" class="mobile-hide">
       <li>{{ photo.id }} {{ photo.title }}</li>
    </ul>
 
-   <p class="pagination">
+
+    <div class="pagination row">
+     <div class="col-sm-12">
        <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+      </div>
          <span>Page {{curPage}} of {{numberOfPages()}}</span>
+      <div class="col-sm-12">
        <button [disabled] = "curPage >= photos.length/pageSize" (click) ="curPage = curPage + 1">NEXT</button>
-   </p>
+      </div>
+    </div>
   <!-- <h1 [ngClass]="{
       'gray': h1Style,
       'large': !h1Style
