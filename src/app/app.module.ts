@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -16,7 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { LoginPageComponent } from './login-page/login-page.component';
+import { ProtectedPageComponent } from './protected-page/protected-page.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { environment } from '../environments/environment';
     ContactComponent,
     HomeComponent,
     FilterPipe,
-    ContactListComponent
+    ContactListComponent,
+    LoginPageComponent,
+    ProtectedPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    NgxSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-  users: any = [];
+  comments: any = [];
   searchContacts: string = '';
 
   curPage : number;
@@ -16,17 +16,22 @@ export class ContactListComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getUsers().subscribe(data => {
-        this.users = data
-        console.log(this.users);
+    this.data.getComments().subscribe(data => {
+        this.comments = data
+        console.log(this.comments);
         this.curPage = 1;
-        this.pageSize = 4;
+        this.pageSize = 3;
       }
     );
   }
 
+   // Add new comments
+  //  addcomments(){
+  //    this.comments.push({ name: this.comments.name });
+  // }
+
   numberOfPages(){
-    return Math.ceil(this.users.length / this.pageSize);
+    return Math.ceil(this.comments.length / this.pageSize);
   };
 
   //   this.Save = function(){

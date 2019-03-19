@@ -1,32 +1,47 @@
-<!-- <h1 [class.gray]="h1Style">
-  Home works!
-</h1> -->
-<div class="homeContainer">
-  <!-- <h1>Angular 7 - Fake API Calls</h1> -->
-
-  <input [(ngModel)]="searchText" placeholder="search..">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <input [(ngModel)]="searchText" placeholder=" search..">
   <br><br>
-    <ul *ngFor="let photo of photos | filter : searchText | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
-      <img [src]="photo.thumbnailUrl" class="mobile-hide">
-      <li>{{ photo.id }} {{ photo.title }}</li>
-   </ul>
+<div class="table_container">
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr style="background-color: green;">
+        <th class="table_headers">AVATAR</th>
+        <th class="table_headers">NAME</th>
+        <th class="table_headers">NODE ID</th>
+        <th class="table_headers">FOLLOWERS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--start Ng spinner -->
+      <ngx-spinner bdOpacity = 0.9 size = "default" color = "#fff" type = "ball-8bits" fullScreen = "false">
+        <p style="color: white" > Loading... </p>
+     </ngx-spinner>
+     <!--end Ng spinner -->
+      <tr class="" *ngFor="let user of users | filter : searchText | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
+        <td><img [src]="user.avatar_url" class="mobile-hide"></td>
+        <td>{{user.login}}</td>
+        <td>{{user.node_id}}</td>
+        <td style="text-decoration: underline;color:blue;">{{user.followers_url}}</td>
+      </tr>
+    </tbody>
+  </table>
 
-
-    <div class="pagination row">
-     <div class="col-sm-12">
-       <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
-      </div>
-         <span>Page {{curPage}} of {{numberOfPages()}}</span>
-      <div class="col-sm-12">
-       <button [disabled] = "curPage >= photos.length/pageSize" (click) ="curPage = curPage + 1">NEXT</button>
-      </div>
-    </div>
-      <a routerLink="/about">testing ninja</a>
-  <!-- <h1 [ngClass]="{
-      'gray': h1Style,
-      'large': !h1Style
-    }">Home works!
-  </h1>
-
-<button (click)="firstClick()">Click me</button> -->
+  <div class="pagination">
+      <button [disabled] ="curPage == 1" (click)="curPage = curPage - 1">PREV</button>
+        <span>Page {{curPage}} of {{numberOfPages()}}</span>
+      <button [disabled] = "curPage >= users.length/pageSize" (click) ="curPage = curPage + 1">NEXT</button>
+  </div>
 </div>
+
+</body>
+</html>

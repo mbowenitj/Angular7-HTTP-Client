@@ -1,24 +1,32 @@
 
 <div class="select_container">
-  <h5>Calculators</h5>
+  <!-- <h5>Calculators</h5> -->
    <div class="selectbox_container row">
     <div class="col-md-12">
-      <label for="quantity">Select option</label>
-      <select id="category">
-         <option value="" disabled selected>select a category</option>
-         <option>testing</option>
+      <select (change)="selectChange()">
+        <option value="" disabled selected >select a category</option>
+        <option *ngFor="let event of events">{{event.actor.display_login}}</option>
       </select>
     </div>
+
    </div>
    <br>
-   <div class="textbox_container row">
+   <div class="textbox_container row" *ngIf="showSelected">
      <div class="col-md-6">
         <label for="quantity">Quantity</label><br>
-       <input type="text" name="" class="textbox" value="">
+        <input type="text" name="" class="textbox" value="">
      </div>
      <div class="col-md-6">
-         <label for="price">Price</label><br>
+       <label for="price">Price</label><br>
        <input type="text" name="" class="textbox" value="">
      </div>
+     <div class="checkboxContainer">
+       <input type="checkbox" name="vehicle" value="Merceds Benz" (change)="toggleCheckbox($event)"> Merceds Benz<br>
+       <input type="checkbox" name="vehicle" value="BMW" (change)="toggleCheckbox($event)"> BMW<br>
+       <input type="checkbox" name="vehicle" value="Kia" (change)="toggleCheckbox($event)"> Kia<br>
+     </div>
+
    </div>
+   <p *ngIf="showSelectedParagraph" class="text"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+    </p>
 </div>

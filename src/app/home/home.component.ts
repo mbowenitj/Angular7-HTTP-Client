@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -8,26 +9,45 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
   h1Style: boolean = false;
-  photos: any = [];
+  users: any = [];
   searchText: string = '';
 
   curPage : number;
   pageSize : number;
 
-  constructor(private data: DataService) { }
+  showLoader: boolean;
+
+  constructor(private data: DataService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.data.getPhotos().subscribe(data => {
-        this.photos = data
-        console.log(this.photos);
+
+    // setTimeout(() => {
+    //     /** spinner ends after 5 seconds */
+    //     this.spinner.hide();
+    // }, 5000);
+
+    this.spinner.show();
+
+    this.data.getUsers().subscribe(data => {
+        this.users = data
+        console.log(this.users);
         this.curPage = 1;
         this.pageSize = 4;
+        this.spinner.hide();
       }
     );
   }
 
+  // startLoadingSpinner() {
+  //     this.ng4LoadingSpinnerService.show();
+  //
+  //     setTimeout(function() {
+  //       this.ng4LoadingSpinnerService.hide();
+  //     }.bind(this), 4000);
+  // }
+
   numberOfPages(){
-    return Math.ceil(this.photos.length / this.pageSize);
+    return Math.ceil(this.users.length / this.pageSize);
   };
 
 

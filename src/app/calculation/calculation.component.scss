@@ -1,6 +1,11 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 .select_container{
+  .text{
+    width: 61%;
+    margin: 0 auto;
+    font-size: 12px;
+  }
   // text-align: center;
   .selectbox_container{
     margin: 0 auto;
@@ -21,8 +26,12 @@
 
   }
   .textbox_container{
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
+    .checkboxContainer{
+      padding-top: 20px;
+      padding-left: 12px;
+    }
   }
   label{
     float: left;

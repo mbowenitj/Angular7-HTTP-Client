@@ -17,17 +17,19 @@ export class DataService {
     return console.log('service works...clicked');
   }
 
-// GET LIST OF USERS FROM API
+  // GET LIST OF USERS FROM API
   getUsers() {
-    // return this.http.get('https://reqres.in/api/users')
-      return this.http.get('https://jsonplaceholder.typicode.com/users')
+      return this.http.get('https://api.github.com/users')
   }
 
-  getPhotos() {
+  getComments() {
     // return this.http.get('https://reqres.in/api/users')
-      return this.http.get('https://jsonplaceholder.typicode.com/photos')
+      return this.http.get('https://jsonplaceholder.typicode.com/comments')
   }
 
+  getEvents() {
+      return this.http.get('https://api.github.com/users/mojombo/received_events')
+  }
   // numberOfPages(){
   //   return Math.ceil(this.photos.length / this.pageSize);
   // };
